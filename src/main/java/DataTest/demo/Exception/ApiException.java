@@ -1,0 +1,12 @@
+package DataTest.demo.Exception;
+
+
+import DataTest.demo.Exception.Enum.ErrorCode;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
+public class ApiException extends RuntimeException {
+  private ErrorCode errorCode;
+}
