@@ -5,85 +5,85 @@ import lombok.Getter;
 
 import java.util.List;
 @Getter
-@XmlRootElement(name = "응답")
+@XmlRootElement(name = "response")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CareEduResponseDTO {
-    @XmlElement(name = "헤더")
+    @XmlElement(name = "header")
     private Header header;
-    @XmlElement(name = "본문")
+    @XmlElement(name = "body")
     private Body body;
 
     @Getter
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Header {
-        @XmlElement(name = "결과코드")
+        @XmlElement(name = "resultCode")
         private String resultCode;
-        @XmlElement(name = "결과메시지")
+        @XmlElement(name = "resultMsg")
         private String resultMsg;
     }
 
     @Getter
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Body {
-        @XmlElement(name = "결과유형")
+        @XmlElement(name = "resultType")
         private String resultType;
-        @XmlElement(name = "행개수")
+        @XmlElement(name = "numOfRows")
         private int numOfRows;
-        @XmlElement(name = "총개수")
+        @XmlElement(name = "totalCount")
         private int totalCount;
-        @XmlElement(name = "페이지번호")
+        @XmlElement(name = "pageNo")
         private int pageNo;
-        @XmlElementWrapper(name = "항목들")
-        @XmlElement(name = "항목")
+        @XmlElementWrapper(name = "items")
+        @XmlElement(name = "item")
         private List<CareEduDTO> item;
     }
 
     @Getter
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class CareEduDTO {
-        @XmlElement(name = "교육기관명")
+        @XmlElement(name = "eduInstNm")
         private String educationalInstitutionName;
-        @XmlElement(name = "시도명")
+        @XmlElement(name = "ctpvNm")
         private String city;
-        @XmlElement(name = "구군명")
+        @XmlElement(name = "sggNm")
         private String district;
-        @XmlElement(name = "도로명주소")
+        @XmlElement(name = "roadNmAddr")
         private String roadAddress;
-        @XmlElement(name = "지번주소")
+        @XmlElement(name = "lotnoAddr")
         private String lotAddress;
-        @XmlElement(name = "위도")
+        @XmlElement(name = "lat")
         private double latitude;
-        @XmlElement(name = "경도")
+        @XmlElement(name = "lot")
         private double longitude;
-        @XmlElement(name = "홈페이지주소")
+        @XmlElement(name = "hmpgAddr")
         private String homepageAddress;
-        @XmlElement(name = "대표전화번호")
+        @XmlElement(name = "rprsTelno")
         private String representativePhoneNumber;
-        @XmlElement(name = "팩스번호")
+        @XmlElement(name = "fxno")
         private String faxNumber;
-        @XmlElement(name = "이메일주소")
+        @XmlElement(name = "emlAddr")
         private String emailAddress;
-        @XmlElement(name = "사업자번호")
+        @XmlElement(name = "brno")
         private String businessNumber;
-        @XmlElement(name = "운영여부")
+        @XmlElement(name = "operYn")
         private String operationStatus;
-        @XmlElement(name = "운영시작일")
+        @XmlElement(name = "operBgngYmd")
         private String operationStartDate;
-        @XmlElement(name = "운영종료일")
+        @XmlElement(name = "operEndYmd")
         private String operationEndDate;
-        @XmlElement(name = "운영시간")
+        @XmlElement(name = "operHrCn")
         private String operationHours;
-        @XmlElement(name = "휴일정보")
+        @XmlElement(name = "hldyCn")
         private String holidayInformation;
-        @XmlElement(name = "인근지하철명")
+        @XmlElement(name = "nrbSbwNm")
         private String neighborhoodSubwayName;
-        @XmlElement(name = "인근버스정류장명")
+        @XmlElement(name = "nrbBusStnNm")
         private String nearbyBusStationName;
-        @XmlElement(name = "인증일자")
+        @XmlElement(name = "crtrYmd")
         private String certificationDate;
-        @XmlElement(name = "노출여부")
+        @XmlElement(name = "expsrYn")
         private String exposureStatus;
-        @XmlElement(name = "비고")
+        @XmlElement(name = "rmrkCn")
         private String remarks;
     }
 }

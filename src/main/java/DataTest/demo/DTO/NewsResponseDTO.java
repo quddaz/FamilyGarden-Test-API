@@ -7,55 +7,55 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-@XmlRootElement(name = "응답")
+@XmlRootElement(name = "response")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class NewsResponseDTO {
-    @XmlElement(name = "헤더")
+    @XmlElement(name = "header")
     private Header header;
 
-    @XmlElement(name = "본문")
+    @XmlElement(name = "body")
     private Body body;
 
     @Getter
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Header {
-        @XmlElement(name = "결과코드")
+        @XmlElement(name = "resultCode")
         private String resultCode;
 
-        @XmlElement(name = "결과메시지")
+        @XmlElement(name = "resultMsg")
         private String resultMsg;
     }
 
     @Getter
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Body {
-        @XmlElement(name = "총개수")
+        @XmlElement(name = "totalCount")
         private int totalCount;
 
-        @XmlElement(name = "페이지번호")
+        @XmlElement(name = "pageNo")
         private int pageNo;
 
-        @XmlElement(name = "행개수")
+        @XmlElement(name = "numOfRows")
         private int numOfRows;
 
-        @XmlElementWrapper(name = "항목들")
-        @XmlElement(name = "항목")
+        @XmlElementWrapper(name = "items")
+        @XmlElement(name = "item")
         private List<NewsDTO> item;
     }
 
     @Getter
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class NewsDTO {
-        @XmlElement(name = "등록일")
+        @XmlElement(name = "regDt")
         private String regDt;
 
-        @XmlElement(name = "썸네일URL")
+        @XmlElement(name = "thumbUrl")
         private String thumbUrl;
 
-        @XmlElement(name = "제목")
+        @XmlElement(name = "title")
         private String title;
 
-        @XmlElement(name = "보기URL")
+        @XmlElement(name = "viewUrl")
         private String viewUrl;
     }
 }
