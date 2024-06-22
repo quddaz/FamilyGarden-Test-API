@@ -14,12 +14,9 @@
 ## 기본 규격
 ```json
 {
-"code": 요청상태코드,
-"message": 메시지,
-"data": [
-{
-}
-],
+"code": 요청상태코드 ,
+"message": 메시지 ,
+"data": [],
 "timestamp": 요청시간
 }
 ```
