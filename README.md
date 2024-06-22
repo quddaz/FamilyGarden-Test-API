@@ -1,4 +1,4 @@
-# 가족뜰 공공데이터 API 데이터 설명
+# 가족뜰 공공데이터
 ## 사용 API
 - 여성가족부 정책 뉴스 조회
     - [여성가족부 정책 뉴스 조회 서비스 | 공공데이터포털 (data.go.kr)](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15058733)
@@ -28,4 +28,17 @@
 "timestamp": "2024-06-22T08:35:40.983192508"
 }
 ```
-      
+## 뉴스 관련 API
+### 여성가족부 정책 뉴스 조회
+- https://port-0-familygarden-test-api-lxfol2lf38345220.sel5.cloudtype.app/api/policy-news
+- 여성가족부의 정책 뉴스 관련 조회입니다.
+```json
+"data" : [
+    {
+        "등록일": "string (YYYY-MM-DD)",
+        "썸네일Url": "string (URL)",
+        "제목": "string",
+        "보기Url": "string (URL)"
+    }
+]
+```
