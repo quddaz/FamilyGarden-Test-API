@@ -47,15 +47,15 @@ public class NewsResponseDTO {
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class NewsDTO {
         @XmlElement(name = "regDt")
-        private String regDt;
+        private String 등록일;
 
         @XmlElement(name = "thumbUrl")
-        private String thumbUrl;
+        private String 썸네일Url;
 
         @XmlElement(name = "title")
-        private String title;
+        private String 제목;
 
         @XmlElement(name = "viewUrl")
-        private String viewUrl;
+        private String 보기Url;
     }
 }

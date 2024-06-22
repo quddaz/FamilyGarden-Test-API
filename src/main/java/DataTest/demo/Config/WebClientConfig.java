@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @Configuration
 public class WebClientConfig {
@@ -18,6 +17,9 @@ public class WebClientConfig {
     private String press_news_baseurl;
     @Value("${policy.news.baseurl}")
     private String policy_news_baseurl;
+    @Value("${weather.forecast.baseurl}")
+    private String weather_forecast_baseurl;
+
     @Bean
     @Qualifier("childCenterWebClient")
     public WebClient childCenterWebClient() {
@@ -44,6 +46,13 @@ public class WebClientConfig {
     public WebClient careEduWebClient() {
         return WebClient.builder()
             .baseUrl(care_edu_baseUrl)
+            .build();
+    }
+    @Bean
+    @Qualifier("weatherForecastWebClient")
+    public WebClient weatherForecastWebClient() {
+        return WebClient.builder()
+            .baseUrl(weather_forecast_baseurl)
             .build();
     }
 }

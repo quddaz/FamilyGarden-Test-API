@@ -4,6 +4,7 @@ import DataTest.demo.DTO.CareEduResponseDTO;
 
 import DataTest.demo.Exception.ApiException;
 import DataTest.demo.Exception.Enum.ApiErrorCode;
+import jakarta.validation.constraints.Null;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -47,7 +48,7 @@ public class CareEduService {
         if (responseDTO != null && responseDTO.getBody().getItem() != null) {
             return responseDTO.getBody().getItem();
         } else {
-            throw new ApiException(ApiErrorCode.CARE_EDU_DATA_NULL_DATA);
+            throw new ApiException(ApiErrorCode.CARE_EDU_NULL_DATA);
         }
     }
 
@@ -58,21 +59,19 @@ public class CareEduService {
      * @return 기관정보 리스트
      */
     public List<CareEduResponseDTO.CareEduDTO> getCareEduData(String eduInstNm) {
-        CareEduResponseDTO responseDTO = careEduWebClient.get()
-            .uri(uriBuilder -> URI.create(uriBuilder
-                .queryParam("pageNo", PAGE_NO)
-                .queryParam("numOfRows", NUM_OF_ROWS)
-                .queryParam("type", API_TYPE)
-                .queryParam("eduInstNm", eduInstNm)
-                .build() + "&serviceKey=" + serviceKey)) // serviceKey를 직접 추가하여 인코딩을 피함
-            .retrieve()
-            .bodyToMono(CareEduResponseDTO.class)
-            .block();
-
-        if (responseDTO != null && responseDTO.getBody().getItem() != null) {
-            return responseDTO.getBody().getItem();
-        } else {
-            throw new ApiException(ApiErrorCode.CARE_EDU_DATA_NULL_DATA);
+        try {
+            return careEduWebClient.get()
+                .uri(uriBuilder -> URI.create(uriBuilder
+                    .queryParam("pageNo", PAGE_NO)
+                    .queryParam("numOfRows", NUM_OF_ROWS)
+                    .queryParam("type", API_TYPE)
+                    .queryParam("eduInstNm", eduInstNm)
+                    .build() + "&serviceKey=" + serviceKey)) // serviceKey를 직접 추가하여 인코딩을 피함
+                .retrieve()
+                .bodyToMono(CareEduResponseDTO.class)
+                .block().getBody().getItem();
+        }catch (NullPointerException e){
+            throw new ApiException(ApiErrorCode.CARE_EDU_NULL_DATA);
         }
     }
 }

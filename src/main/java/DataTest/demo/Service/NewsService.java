@@ -43,24 +43,22 @@ public class NewsService {
         if (responseDTO != null && responseDTO.getBody().getItem() != null) {
             return responseDTO.getBody().getItem();
         } else {
-            throw new ApiException(ApiErrorCode.CARE_EDU_DATA_NULL_DATA);
+            throw new ApiException(ApiErrorCode.NEWS_NULL_DATA);
         }
     }
     public List<NewsResponseDTO.NewsDTO> getPressNews() {
-        NewsResponseDTO responseDTO = pressNewsWebClient.get()
-            .uri(uriBuilder -> URI.create(uriBuilder
-                .queryParam("pageNo", PAGE_NO)
-                .queryParam("numOfRows", NUM_OF_ROWS)
-                .queryParam("type", API_TYPE)
-                .build() + "&serviceKey=" + serviceKey)) // serviceKey를 직접 추가하여 인코딩을 피함
-            .retrieve()
-            .bodyToMono(NewsResponseDTO.class)
-            .block();
-
-        if (responseDTO != null && responseDTO.getBody().getItem() != null) {
-            return responseDTO.getBody().getItem();
-        } else {
-            throw new ApiException(ApiErrorCode.CARE_EDU_DATA_NULL_DATA);
+        try {
+            return pressNewsWebClient.get()
+                .uri(uriBuilder -> URI.create(uriBuilder
+                    .queryParam("pageNo", PAGE_NO)
+                    .queryParam("numOfRows", NUM_OF_ROWS)
+                    .queryParam("type", API_TYPE)
+                    .build() + "&serviceKey=" + serviceKey)) // serviceKey를 직접 추가하여 인코딩을 피함
+                .retrieve()
+                .bodyToMono(NewsResponseDTO.class)
+                .block().getBody().getItem();
+        }catch(NullPointerException e){
+            throw new ApiException(ApiErrorCode.NEWS_NULL_DATA);
         }
     }
 

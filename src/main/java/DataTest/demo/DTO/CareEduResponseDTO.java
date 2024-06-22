@@ -42,48 +42,70 @@ public class CareEduResponseDTO {
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class CareEduDTO {
         @XmlElement(name = "eduInstNm")
-        private String educationalInstitutionName;
+        private String 교육기관명;
+
         @XmlElement(name = "ctpvNm")
-        private String city;
+        private String 시;
+
         @XmlElement(name = "sggNm")
-        private String district;
+        private String 구;
+
         @XmlElement(name = "roadNmAddr")
-        private String roadAddress;
+        private String 도로명주소;
+
         @XmlElement(name = "lotnoAddr")
-        private String lotAddress;
+        private String 지번주소;
+
         @XmlElement(name = "lat")
-        private double latitude;
+        private double 위도;
+
         @XmlElement(name = "lot")
-        private double longitude;
+        private double 경도;
+
         @XmlElement(name = "hmpgAddr")
-        private String homepageAddress;
+        private String 홈페이지주소;
+
         @XmlElement(name = "rprsTelno")
-        private String representativePhoneNumber;
+        private String 대표전화번호;
+
         @XmlElement(name = "fxno")
-        private String faxNumber;
+        private String 팩스번호;
+
         @XmlElement(name = "emlAddr")
-        private String emailAddress;
+        private String 이메일주소;
+
         @XmlElement(name = "brno")
-        private String businessNumber;
+        private String 사업자등록번호;
+
         @XmlElement(name = "operYn")
-        private String operationStatus;
+        private String 운영상태;
+
         @XmlElement(name = "operBgngYmd")
-        private String operationStartDate;
+        private String 운영시작일자;
+
         @XmlElement(name = "operEndYmd")
-        private String operationEndDate;
+        private String 운영종료일자;
+
         @XmlElement(name = "operHrCn")
-        private String operationHours;
+        private String 운영시간;
+
         @XmlElement(name = "hldyCn")
-        private String holidayInformation;
+        private String 휴무정보;
+
         @XmlElement(name = "nrbSbwNm")
-        private String neighborhoodSubwayName;
+        private String 인근지하철역명;
+
         @XmlElement(name = "nrbBusStnNm")
-        private String nearbyBusStationName;
+        private String 인근버스정류장명;
+
         @XmlElement(name = "crtrYmd")
-        private String certificationDate;
+        private String 인증일자;
+
         @XmlElement(name = "expsrYn")
-        private String exposureStatus;
+        private String 노출여부;
+
         @XmlElement(name = "rmrkCn")
-        private String remarks;
+        private String 비고;
     }
+
 }
