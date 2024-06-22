@@ -106,9 +106,10 @@
         }
     ]
 ```
-### 날씨 조회 
+## 날씨 조회 
+### 날씨 초단기실황 조회
 - https://port-0-familygarden-test-api-lxfol2lf38345220.sel5.cloudtype.app/api/weather-forecast?base_date=20240622&base_time=0630&nx=55&ny=127
-- 날씨 정보를 조회합니다.
+- 현재 기상정보를 실시간으로 조회합니다. 
 ```json
     "data": [
         {
